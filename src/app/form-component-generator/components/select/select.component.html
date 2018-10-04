@@ -1,0 +1,6 @@
+<mat-form-field class="form-dynamic-input" [formGroup]="group">
+  <mat-select [placeholder]="field.label" [formControlName]="field.name">
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let item of field.options" [value]="item">{{item.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
