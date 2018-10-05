@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { of } from "rxjs";
+import { of } from 'rxjs';
 import { res } from './res';
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class ApiService {
 
-  constructor() { }
+    constructor() { }
 
-  getItems() {
-    return of(res);
-  }
-
-
+    getItems() {
+        return of(res);
+    }
 }

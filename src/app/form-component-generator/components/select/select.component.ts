@@ -1,20 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { FormGroup } from "@angular/forms";
-import { FieldConfig } from "../../interfaces/field.interface";
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FieldConfig } from '../../interfaces/field.interface';
 
 @Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html'
+    selector: 'app-select',
+    templateUrl: './select.component.html'
 })
 export class SelectComponent implements OnInit {
 
-  field: FieldConfig;
-  group: FormGroup;
+    field: FieldConfig;
+    group: FormGroup;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  
-  }
+    ngOnInit() {
+
+    }
 
 }
