@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FieldConfig } from '../../interfaces/field.interface';
+import { BaseComponent } from '../base.component';
 
 @Component({
     selector: 'app-input',
     templateUrl: './input.component.html'
 })
-export class InputComponent implements OnInit {
-
-    field: FieldConfig;
-    group: FormGroup;
-
-    constructor() { }
+export class InputComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
-
+        this._init();
     }
 }

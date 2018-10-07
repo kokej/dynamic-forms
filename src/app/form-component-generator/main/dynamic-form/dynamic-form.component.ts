@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { FieldConfig, Validator } from '../../interfaces/field.interface';
+import { FormData, FieldConfig } from '../../interfaces/field.interface';
 
 @Component({
     selector: 'app-dynamic-form',
@@ -8,10 +8,11 @@ import { FieldConfig, Validator } from '../../interfaces/field.interface';
 })
 export class DynamicFormComponent implements OnInit {
 
-    @Input() fields: FieldConfig[] = [];
+    @Input() formData: FormData;
     @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
     form: FormGroup;
+    fields: FieldConfig[] = [];
 
     constructor(
         private _fb: FormBuilder
@@ -37,6 +38,10 @@ export class DynamicFormComponent implements OnInit {
 
     createControl() {
         const group = this._fb.group({});
+
+        this.fields = Array.from(this.formData.data);
+
+        this.fields.push(this.formData.button);
 
         this.fields.forEach(field => {
 

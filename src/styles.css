@@ -1,8 +1,22 @@
-.form-dynamic-input {
-  margin: 1em;
+.dynamic-form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-dynamic__input {
+    display: inline-block;
+    margin: 1em;
+}
+
+.form-dynamic__input-block {
+    display: block;
+}
+
+.form-dynamic__btn {
+    display: block;
 }
 
 .mat-radio-button {
-  margin: 1em;
+    margin: 1em;
 }
-

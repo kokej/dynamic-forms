@@ -2,15 +2,23 @@
     <div [ngSwitch]="input.controlType">
 
         <mat-form-field *ngSwitchCase="'textbox'" class="form-dynamic-input" [formGroup]="form">
-            <input matInput [formControlName]="input.key" [id]="input.key" [type]="input.type" [placeholder]="input.key">
+            <input matInput [formControlName]="input.key" [id]="input.key" [type]="input.type" [placeholder]="input.key"
+                [required]="input.required">
         </mat-form-field>
 
         <mat-form-field *ngSwitchCase="'dropdown'" class="form-dynamic-input" [formGroup]="form">
-            <mat-select [placeholder]="input.key" [id]="input.key" [formControlName]="input.key">
+            <mat-select [placeholder]="input.key" [id]="input.key" [formControlName]="input.key" [required]="input.required">
                 <mat-option *ngFor="let opt of input.options" [value]="opt.key">{{opt.value}}</mat-option>
             </mat-select>
         </mat-form-field>
 
-    </div> 
+        <mat-form-field *ngSwitchCase="'datepicker'" class="form-dynamic-input" [formGroup]="form">
+            <input matInput [matDatepicker]="picker" [formControlName]="input.key" [placeholder]="input.key" [required]="input.required">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-hint></mat-hint>
+        </mat-form-field>
+
+    </div>
     <div class="errorMessage" *ngIf="!isValid">{{input.label}} is required</div>
 </div>

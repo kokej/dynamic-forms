@@ -12,12 +12,15 @@ export interface FieldConfig {
     label?: string;
     name?: string;
     inputType?: string;
-    options?: string[];
+    classList?: string;
+    options?: any[];
     type: string;
     value?: any;
     validations?: Validator[];
+    queryString?: string;
 }
 export interface FormData {
     type: Type;
     data: FieldConfig[];
+    button: FieldConfig;
 }

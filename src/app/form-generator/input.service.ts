@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { InputDropdown } from './components/dropdown';
 import { InputBase } from './input-base';
 import { InputTextbox } from './components/textbox';
+import { InputDatepicker } from './components/datepicker';
 
 @Injectable()
 export class InputService {
@@ -29,6 +30,7 @@ export class InputService {
                 label: 'First name',
                 value: 'Bombasto',
                 required: true,
+                validators: ['required'],
                 order: 1
             }),
 
@@ -38,6 +40,12 @@ export class InputService {
                 type: 'email',
                 value: 'a@a.com',
                 order: 2
+            }),
+            new InputDatepicker({
+                key: 'creation date',
+                label: 'creation date',
+                value: '',
+                order: 4
             })
         ];
 

@@ -1,6 +1,6 @@
 export const res = {
   resLength: '5',
-  resList: [
+  resultList: [
     {id: 1, name: 'US Dolar'},
     {id: 2, name: 'Puyolets'},
     {id: 3, name: 'Euro'},

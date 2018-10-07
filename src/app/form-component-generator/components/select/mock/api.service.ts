@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { res } from './res';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ApiService {
 
-    constructor() { }
+    constructor(
+        private _http: HttpClient
+    ) { }
 
-    getItems() {
-        return of(res);
+    getItems(queryString) {
+        return this._http.get(queryString);
     }
 }
