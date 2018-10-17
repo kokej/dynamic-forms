@@ -1,4 +1,8 @@
-<app-dynamic-form [formData]="searchGroup" (submit)="onSearch($event)">
+<app-dynamic-form [formData]="searchGroup" (submit)="onSearch(searchGroup, $event)">
+    <p>{{ form.value | json }}</p>
 </app-dynamic-form>
-<p>{{ form.value | json }}</p>
+
   
+<app-dynamic-form [formData]="createGroup" (submit)="onCreate(createGroup, $event)">
+    <p>{{ form.value | json }}</p>
+</app-dynamic-form>
