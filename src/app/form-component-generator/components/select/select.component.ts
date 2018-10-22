@@ -21,6 +21,7 @@ export class SelectComponent extends BaseComponent implements OnInit {
         this._init();
 
         if (this.field.queryString) {
+
             return this._api.getItems(this.field.queryString).subscribe(res =>
                 this.options = res
             );

@@ -20,3 +20,12 @@
 .mat-radio-button {
     margin: 1em;
 }
+
+.mat-card {
+    margin: 1em 0;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+    cursor: pointer;
+    padding: 0 2em !important;
+}

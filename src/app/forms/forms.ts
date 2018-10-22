@@ -2,77 +2,66 @@ import { Validators } from '@angular/forms';
 import { Type, FormData, Validator, FieldConfig } from '../form-component-generator/interfaces/field.interface';
 
 export namespace forms {
-    export const updateGroup: FormData = {
-        type: Type.update,
-        data: null,
-        button: {
-            type: 'button',
-            label: 'update'
-        }
-    };
     export const createGroup: FormData = {
-        type: Type.search,
+        type: Type.create,
         data: [
             {
                 type: 'input',
-                label: 'crear',
                 inputType: 'text',
-                name: 'crear',
-                /*                 validations: [
-                                    {
-                                        name: 'required',
-                                        validator: Validators.required,
-                                        message: 'id Required'
-                                    },
-                                    {
-                                        name: 'pattern',
-                                        validator: Validators.pattern('^[a-zA-Z0-9]*$'),
-                                        message: 'Alphanumeric only'
-                                    }
-                                ] */
+                label: 'to do',
+                name: 'to_do',
+                required: true,
+                validations: [
+                    {
+                        name: 'required',
+                        validator: Validators.required,
+                        message: 'to do Required'
+                    }
+                ]
             },
             {
                 type: 'input',
-                label: 'crear descripción',
                 inputType: 'text',
-                name: 'crear_descripción'
+                label: 'description',
+                name: 'description'
             },
             {
                 type: 'radiobutton',
-                label: 'priveq',
-                name: 'crear_priveq',
-                options: ['si', 'no'],
-                value: 'N'
+                label: 'done',
+                name: 'done',
+                required: true,
+                options: ['yes', 'no'],
+                value: 'no'
             },
-            /*             {
-                            type: 'date',
-                            label: 'fecha de creación',
-                            name: 'crear_creation_date',
-            /*                 validations: [
-                                {
-                                    name: 'required',
-                                    validator: Validators.required,
-                                    message: 'Required creation date'
-                                }
-                    ]
-                    */
-            /*
-                },
-                {
-                    type: 'select',
-                    label: 'currency',
-                    name: 'currency',
-                    value: 0,
-                    options: [{ name: 'dolar', id: 'us' }, { name: 'euro', id: 'eu' }],
-                    queryString: 'https://jsonplaceholder.typicode.com/users'
-                },
-                {
-                    type: 'checkbox',
-                    label: 'active',
-                    name: 'active',
-                    value: true
-                }
-            */
+/*
+            {
+                type: 'date',
+                label: 'fecha de creación',
+                name: 'crear_creation_date',
+                validations: [
+                    {
+                        name: 'required',
+                        validator: Validators.required,
+                        message: 'Required creation date'
+                    }
+                ]
+
+            },
+            {
+                type: 'select',
+                label: 'currency',
+                name: 'currency',
+                value: 0,
+                options: [{ name: 'dolar', id: 'us' }, { name: 'euro', id: 'eu' }],
+                queryString: 'https://jsonplaceholder.typicode.com/users'
+            },
+            {
+                type: 'checkbox',
+                label: 'active',
+                name: 'active',
+                value: true
+            }
+*/
         ],
         button: {
             type: 'button',
@@ -84,69 +73,110 @@ export namespace forms {
         data: [
             {
                 type: 'input',
-                label: 'search',
                 inputType: 'text',
-                name: 'search',
-                /*                 validations: [
-                                    {
-                                        name: 'required',
-                                        validator: Validators.required,
-                                        message: 'id Required'
-                                    },
-                                    {
-                                        name: 'pattern',
-                                        validator: Validators.pattern('^[a-zA-Z0-9]*$'),
-                                        message: 'Alphanumeric only'
-                                    }
-                                ] */
+                label: 'id',
+                name: 'id'
             },
             {
                 type: 'input',
-                label: 'search descripción',
                 inputType: 'text',
-                name: 'search_description'
+                label: 'to do',
+                name: 'to_do'
+            },
+            {
+                type: 'input',
+                inputType: 'text',
+                label: 'description',
+                name: 'description'
             },
             {
                 type: 'radiobutton',
-                label: 'search priveq',
-                name: 'search_priveq',
-                options: ['si', 'no'],
-                value: 'N'
+                label: 'done',
+                name: 'done',
+                options: ['yes', 'no']
             },
             /*
-            {
-                type: 'date',
-                label: 'fecha de creación',
-                name: 'creation_date',
-                /*                 validations: [
-                                    {
-                                        name: 'required',
-                                        validator: Validators.required,
-                                        message: 'Required creation date'
-                                    }
-                                ]
-                                */
-            /*
-},
-{
-type: 'select',
-label: 'currency',
-name: 'currency',
-value: 0,
-options: [{ name: 'dolar', id: 'us' }, { name: 'euro', id: 'eu' }],
-queryString: 'https://jsonplaceholder.typicode.com/users'
-},
-{
-type: 'checkbox',
-label: 'active',
-name: 'active',
-value: true
-}
-*/
+                        {
+                            type: 'date',
+                            label: 'fecha de creación',
+                            name: 'creation_date',
+                            validations: [
+                                {
+                                    name: 'required',
+                                    validator: Validators.required,
+                                    message: 'Required creation date'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'select',
+                            label: 'currency',
+                            name: 'currency',
+                            value: 0,
+                            options: [{ name: 'dolar', id: 'us' }, { name: 'euro', id: 'eu' }],
+                            queryString: 'https://jsonplaceholder.typicode.com/users'
+                        },
+                        {
+                            type: 'checkbox',
+                            label: 'active',
+                            name: 'active',
+                            value: true
+                        }
+            */
         ],
         button: {
             type: 'button',
             label: 'buscar'
+        }
+    };
+    export const updateGroup: FormData = {
+        type: Type.search,
+        data: [
+            {
+                type: 'input',
+                inputType: 'text',
+                label: 'id',
+                name: 'id',
+                readonly: true,
+            },
+            {
+                type: 'input',
+                inputType: 'text',
+                label: 'to do',
+                name: 'to_do',
+                required: true,
+                validations: [
+                    {
+                        name: 'required',
+                        validator: Validators.required,
+                        message: 'to do Required'
+                    }
+                ]
+            },
+            {
+                type: 'input',
+                inputType: 'text',
+                label: 'description',
+                name: 'description'
+            },
+            {
+                type: 'radiobutton',
+                label: 'done',
+                name: 'done',
+                options: ['yes', 'no'],
+                required: true,
+                validations: [
+                    {
+                        name: 'required',
+                        validator: Validators.required,
+                        message: 'to do Required'
+                    }
+                ]
+            }
+        ],
+        button: {
+            type: 'button',
+            label: 'editar'
         }
     };
 }

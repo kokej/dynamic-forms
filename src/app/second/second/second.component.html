@@ -1,8 +1,46 @@
-<app-dynamic-form [formData]="searchGroup" (submit)="onSearch(searchGroup, $event)">
-    <p>{{ form.value | json }}</p>
-</app-dynamic-form>
+<mat-card>
+    <mat-tab-group>
+        <mat-tab label="search">
+            <app-dynamic-form [formData]="searchGroup" (valueChanges)="onChanges($event)" (submit)="onSearch($event)">
+            </app-dynamic-form>
+        </mat-tab>
 
-  
-<app-dynamic-form [formData]="createGroup" (submit)="onCreate(createGroup, $event)">
-    <p>{{ form.value | json }}</p>
-</app-dynamic-form>
+        <mat-tab label="create">
+            <app-dynamic-form [formData]="createGroup" (submit)="onCreate($event)">
+            </app-dynamic-form>
+        </mat-tab>
+
+        <mat-tab label="edit form">
+            to do
+        </mat-tab>
+
+    </mat-tab-group>
+</mat-card>
+
+<mat-card>
+    <table mat-table [dataSource]=resultList>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> id </th>
+            <td mat-cell *matCellDef="let todo"> {{todo.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="to_do">
+            <th mat-header-cell *matHeaderCellDef> to do </th>
+            <td mat-cell *matCellDef="let todo"> {{todo.to_do}} </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> description </th>
+            <td mat-cell *matCellDef="let todo"> {{todo.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="done">
+            <th mat-header-cell *matHeaderCellDef> done </th>
+            <td mat-cell *matCellDef="let todo"> {{todo.done}} </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let todo" (click)="onDelete($event, todo)"> X </td>
+        </ng-container>
+        onDelete
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let item; columns: columnsToDisplay" (click)="onUpdate(item)"></tr>
+    </table>
+</mat-card>

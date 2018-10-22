@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { FormData, FieldConfig } from '../../interfaces/field.interface';
+import { FormData, FieldConfig, Type } from '../../interfaces/field.interface';
 
 @Component({
     selector: 'app-dynamic-form',
@@ -10,6 +10,7 @@ export class DynamicFormComponent implements OnInit {
 
     @Input() formData: FormData;
     @Output() submit: EventEmitter<any> = new EventEmitter<any>();
+    @Output() valueChanges: EventEmitter<any> = new EventEmitter<any>();
 
     form: FormGroup;
     fields: FieldConfig[] = [];
@@ -19,6 +20,7 @@ export class DynamicFormComponent implements OnInit {
     ) { }
 
     get value() {
+
         return this.form.value;
     }
 
@@ -39,15 +41,10 @@ export class DynamicFormComponent implements OnInit {
     createControl() {
         const group = this._fb.group({});
 
-        this.fields = Array.from(this.formData.data);
-
-        this.fields.push(this.formData.button);
+        this.fields = this.formData.data;
 
         this.fields.forEach(field => {
 
-            if (field.type === 'button') {
-                return;
-            }
             const control = this._fb.control(
                 field.value,
                 this.bindValidations(field.validations || [])
@@ -73,7 +70,7 @@ export class DynamicFormComponent implements OnInit {
         event.stopPropagation();
 
         if (this.form.valid) {
-            this.submit.emit(this.form.value);
+            this.submit.emit(this.form);
         } else {
             this.validateAllFormFields(this.form);
         }
@@ -81,6 +78,11 @@ export class DynamicFormComponent implements OnInit {
 
     ngOnInit() {
         this.form = this.createControl();
+        if (this.formData.type === Type.search) {
+            this.form.valueChanges.subscribe(changes => {
+                this.valueChanges.emit(this.form);
+            });
+        }
     }
 
 }

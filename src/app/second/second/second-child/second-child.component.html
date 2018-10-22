@@ -1,4 +1,4 @@
-<app-dynamic-form [formData]="updateGroup" (submit)="onUpdate(updateGroup, $event)">
+<app-dynamic-form [formData]="updateGroup" (submit)="onUpdate($event)">
     <p>{{ form.value | json }}</p>
 </app-dynamic-form>
 

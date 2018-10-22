@@ -11,6 +11,7 @@ export class ApiService {
     ) { }
 
     getItems(queryString) {
+
         return this._http.get(queryString);
     }
 }

@@ -18,6 +18,8 @@ export interface FieldConfig {
     value?: any;
     validations?: Validator[];
     queryString?: string;
+    readonly?: boolean;
+    required?: boolean;
 }
 export interface FormData {
     type: Type;

@@ -4,12 +4,14 @@ import { SecondRoutingModule } from './second-routing.module';
 import { SecondComponent } from './second/second.component';
 import { SecondChildComponent } from './second/second-child/second-child.component';
 import { FormComponentGeneratorModule } from '../form-component-generator/form-component-generator.module';
+import { MaterialModule } from '../ext/material.module';
 
 @NgModule({
     imports: [
         CommonModule,
         SecondRoutingModule,
-        FormComponentGeneratorModule
+        FormComponentGeneratorModule,
+        MaterialModule
     ],
     declarations: [
         SecondComponent,
